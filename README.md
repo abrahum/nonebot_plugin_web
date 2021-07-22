@@ -22,6 +22,8 @@ A Web Monitor For Nonebot2
 
 视奸使用中的`Bot`
 
+URL: `http://host:port/web/`
+
 **本插件处于初步开发阶段，前端苦手，勿喷**
 
 ## To-Do

@@ -22,7 +22,7 @@ def init():
     if host in ["0.0.0.0", "127.0.0.1"]:
         host = "localhost"
     logger.opt(colors=True).info(
-        f"NonebotWeb will be running at:<b><u>http://{host}:{port}/test/</u></b>")
+        f"NonebotWeb will be running at:<b><u>http://{host}:{port}/web/</u></b>")
 
 
 @Bot.on_called_api

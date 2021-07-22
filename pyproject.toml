@@ -1,0 +1,25 @@
+[tool.poetry]
+authors = ["abrahumlink <307887491@qq.com>"]
+description = ""
+keywords = ["nonebot", "qq", "qqbot", "mirai", "cqhttp"]
+license = "MIT"
+name = "nonebot-plugin-web"
+version = "0.1.1"
+
+[tool.poetry.dependencies]
+nonebot-adapter-cqhttp = "^2.0.0-alpha.13"
+nonebot2 = "^2.0.0-alpha.13"
+python = "^3.8"
+python-socketio = "^4.6.1"
+
+[tool.poetry.dev-dependencies]
+autopep8 = "^1.5.7"
+
+[[tool.poetry.source]]
+default = true
+name = "aliyun"
+url = "https://mirrors.aliyun.com/pypi/simple/"
+
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core>=1.0.0"]

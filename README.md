@@ -28,8 +28,8 @@ URL: `http://host:port/web/`
 
 ## To-Do
 
-- 新消息置顶
-- cq码解析
+- [x]新消息置顶
+- [ ]cq码解析
 
 ## 特别鸣谢
 

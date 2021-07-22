@@ -124,9 +124,12 @@ const storeops: StoreOptions<RootState> = {
         newChat.hadNewMessage = true;
         newChat.newMessageCount += 1;
       }
-      chats.set(payload.id, newChat)
+      const chatsArray: Array<any> = [[payload.id, newChat]].concat(Array.from(chats))
+      const newchats: Map<number, Chat> = new Map(chatsArray)
+      console.log(newchats);
+      console.log(Array.from(chats));
       state.chats = new Map();
-      state.chats = chats;
+      state.chats = newchats;
       console.log(state.chats)
     }
   },

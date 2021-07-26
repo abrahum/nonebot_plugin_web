@@ -78,7 +78,7 @@ export default class Sender extends Vue {
   }
 
   private keyUp(event: any) {
-    if (event.ksy === "Enter") {
+    if (event.key === "Enter") {
       this.sendMessage();
     }
   }

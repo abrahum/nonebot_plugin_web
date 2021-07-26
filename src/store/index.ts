@@ -92,7 +92,7 @@ const storeops: StoreOptions<RootState> = {
       const newChat: Chat = {
         user_id: payload.id,
         active: false,
-        type: payload.sub_type,
+        type: payload.message_type,
         chatName: payload.chatName,
         avatar: "",
         messages: [],
@@ -103,7 +103,7 @@ const storeops: StoreOptions<RootState> = {
     },
     newMessage(state: RootState, payload: any) {
       const msg: MessageEvent = {
-        message_type: payload.sub_type,
+        message_type: payload.message_type,
         raw_message: payload.raw_message,
         user_id: payload.user_id,
         time: payload.time,

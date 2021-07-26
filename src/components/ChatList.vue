@@ -44,9 +44,9 @@ export default class ChatList extends Vue {
   }
   private avatar(type: string, id: number) {
     if (id === 0) {
-      return "https://v2.nonebot.dev/logo.png"
+      return "https://v2.nonebot.dev/logo.png";
     }
-    if (type === "friend") {
+    if (type === "private") {
       return "http://q1.qlogo.cn/g?b=qq&nk=" + id.toString() + "&s=640";
     } else {
       return "http://p.qlogo.cn/gh/" + id + "/" + id + "/0";

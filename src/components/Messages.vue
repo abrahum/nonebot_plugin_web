@@ -17,7 +17,7 @@
         <p class="message-nickname" v-else>
           {{ item.sender.nickname + " " + formatTime(item.time) }}
         </p>
-        <p class="message-classic" v-html="escape(item.raw_message)"></p>
+        <p class="message-classic" v-html="build_message(item)"></p>
       </li>
     </ul>
   </div>
@@ -25,6 +25,8 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import message_array_parser from "../assets/parser";
+import { MessageArrayItem, MessageEvent } from "../assets/utils";
 
 @Component({
   name: "Messages",
@@ -32,6 +34,22 @@ import { Component, Vue } from "vue-property-decorator";
 export default class Messages extends Vue {
   public get getChat() {
     return this.$store.getters.activingChat;
+  }
+
+  private build_message(item: MessageEvent) {
+    if (item.message) {
+      let rmsg = "";
+      if (item.to_me && item.message_type === "group") {
+        rmsg +=
+          '<span style="color:red"> @' +
+          (this.$store.state.envs.bot_id as string) +
+          " </span>";
+      }
+      rmsg += message_array_parser(item.message as Array<MessageArrayItem>);
+      return rmsg;
+    } else {
+      return this.escape(item.raw_message);
+    }
   }
 
   public get getMessages() {

@@ -13,6 +13,10 @@ module.exports = {
         ws: true,
         changeOrigin: true,
       },
+      '/web': {
+        target: 'http://192.168.0.118:8080',
+        changeOrigin: true,
+      },
     }
   }
 }

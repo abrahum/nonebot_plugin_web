@@ -20,7 +20,7 @@
         @click="sendMessage"
         class="send-button"
       >
-        发送
+        连接
       </el-button>
     </div>
   </div>
@@ -79,6 +79,7 @@ export default class Sender extends Vue {
 
   private keyUp(event: any) {
     if (event.key === "Enter") {
+      this.textArea = this.textArea.slice(0, -1);
       this.sendMessage();
     }
   }

@@ -105,10 +105,12 @@ const storeops: StoreOptions<RootState> = {
       const msg: MessageEvent = {
         message_type: payload.message_type,
         raw_message: payload.raw_message,
+        message: payload.message,
         user_id: payload.user_id,
         time: payload.time,
         self_id: payload.self_id,
         post_type: payload.post_type,
+        to_me: payload.to_me,
         sender: {
           user_id: payload.sender.user_id,
           nickname: payload.sender.nickname,
@@ -117,20 +119,17 @@ const storeops: StoreOptions<RootState> = {
         }
       };
       const chats = state.chats;
-      const newChat = (chats.get(payload.id) as Chat)
+      const newChat = (chats.get(payload.id) as Chat);
       newChat.messages.push(msg);
-      chats.delete(payload.id)
+      chats.delete(payload.id);
       if (!newChat.active) {
         newChat.hadNewMessage = true;
         newChat.newMessageCount += 1;
       }
-      const chatsArray: Array<any> = [[payload.id, newChat]].concat(Array.from(chats))
-      const newchats: Map<number, Chat> = new Map(chatsArray)
-      console.log(newchats);
-      console.log(Array.from(chats));
+      const chatsArray: Array<any> = [[payload.id, newChat]].concat(Array.from(chats));
+      const newchats: Map<number, Chat> = new Map(chatsArray);
       state.chats = new Map();
       state.chats = newchats;
-      console.log(state.chats)
     }
   },
   actions: {

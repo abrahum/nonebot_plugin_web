@@ -48,6 +48,7 @@ interface MessageEvent extends Event {
     raw_message: string;
     user_id: number;
     sender?: Sender;
+    to_me?: boolean;
 }
 
 interface Chat {
@@ -65,4 +66,5 @@ export {
     Chat,
     Event,
     MessageEvent,
+    MessageArrayItem,
 }

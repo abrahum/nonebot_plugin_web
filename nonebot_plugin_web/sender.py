@@ -54,8 +54,11 @@ async def se_sio_sender(data: dict, mtype: str, bot: Bot) -> None:
 
     msgs = []
     for msg in data["message"]:
-        msgs.append(msg.__dict__)
-    data["message"] = msgs
+        if isinstance(msg, str):
+            msgs.append(msg)
+        else:
+            msgs.append(msg.__dict__)
+    rdata["message"] = msgs
 
     if data.get("group_id"):
         rdata["id"] = data["group_id"]
